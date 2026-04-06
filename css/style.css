@@ -6,12 +6,21 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, -apple-system, BlinkMacSystemFont, sans-serif;
     background: #f0f2f5;
     color: #333;
     line-height: 1.6;
     padding: 20px;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img { max-width: 100%; }
 
 /* ===== LANDING PAGE ===== */
 .hero {
@@ -24,7 +33,8 @@ body {
 }
 
 .hero h1 {
-    font-size: 1.8em;
+    color: white;
+    font-size: 2em;
     margin-bottom: 10px;
 }
 
@@ -51,8 +61,8 @@ body {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -112,12 +122,12 @@ body {
 .topics ul {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4px;
 }
 
 .topics ul li::before {
-    content: "→ ";
+    content: "\2192 ";
     color: #4a90d9;
 }
 
@@ -126,21 +136,30 @@ body {
     background: #1a1a2e;
     color: white;
     padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 0.82em;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0;
+}
+
+.secao-titulo a {
+    color: rgba(255,255,255,0.85);
+    transition: color 0.15s;
+}
+
+.secao-titulo a:hover {
+    color: white;
 }
 
 /* ===== QUESTAO CARD ===== */
 .questao {
     background: white;
     padding: 18px 20px;
-    margin: 10px 0;
-    border-radius: 8px;
+    margin: 0 0 16px;
+    border-radius: 0 0 8px 8px;
     border-left: 4px solid #4a90d9;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
 .questao h3 {
@@ -155,11 +174,12 @@ body {
     color: #d4d4d4;
     padding: 12px;
     border-radius: 6px;
-    font-family: monospace;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
     white-space: pre;
     overflow-x: auto;
     line-height: 1.5;
-    font-size: 0.88em;
+    font-size: 0.85em;
+    -webkit-overflow-scrolling: touch;
 }
 
 .lacuna {
@@ -176,11 +196,16 @@ body {
 
 .opcoes li {
     padding: 10px 14px;
-    margin: 5px 0;
+    margin: 4px 0;
     border: 2px solid #e0e0e0;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.15s;
+    font-size: 0.92em;
+}
+
+.opcoes li:active {
+    transform: scale(0.98);
 }
 
 .opcoes li:hover {
@@ -219,6 +244,7 @@ textarea {
     background: #fafafa;
     resize: vertical;
     margin-top: 8px;
+    -webkit-appearance: none;
 }
 
 textarea:focus {
@@ -244,13 +270,21 @@ textarea:focus {
 
 /* ===== BUTTONS ===== */
 button {
-    padding: 9px 18px;
+    padding: 10px 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 13px;
-    margin: 5px 5px 0 0;
-    transition: opacity 0.15s;
+    font-size: 14px;
+    margin: 6px 6px 0 0;
+    transition: opacity 0.15s, transform 0.1s;
+    font-weight: 500;
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+button:active {
+    transform: scale(0.96);
 }
 
 button:hover {
@@ -321,7 +355,10 @@ button:hover {
     white-space: pre-line;
 }
 
-h1 { text-align: center; color: #1a1a2e; }
+h1 {
+    text-align: center;
+    color: #1a1a2e;
+}
 
 /* ===== FOOTER ===== */
 .footer {
@@ -332,7 +369,8 @@ h1 { text-align: center; color: #1a1a2e; }
 }
 
 /* ===== LISTS ===== */
-.questao ol, .questao ul:not(.opcoes) {
+.questao ol,
+.questao ul:not(.opcoes) {
     padding-left: 22px;
 }
 
@@ -344,49 +382,185 @@ h1 { text-align: center; color: #1a1a2e; }
     margin: 8px 0;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
+/* ========================================== */
+/* ===== MOBILE — Mobile First Adjustments === */
+/* ========================================== */
+@media (max-width: 640px) {
     body {
-        padding: 10px;
+        padding: 8px 8px 20px;
     }
 
+    /* Hero compacto */
     .hero {
-        padding: 28px 16px;
+        padding: 24px 16px;
+        border-radius: 8px;
+        margin-bottom: 16px;
     }
 
     .hero h1 {
-        font-size: 1.4em;
+        font-size: 1.5em;
+        line-height: 1.2;
     }
 
-    .badges {
-        flex-direction: column;
-        align-items: center;
+    .hero .badges {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
+    .badge {
+        font-size: 0.75em;
+        padding: 3px 10px;
+    }
+
+    .hero p {
+        font-size: 0.9em;
+    }
+
+    /* Cards empilham 1 coluna */
     .cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .card h2 {
+        font-size: 1.05em;
+    }
+
+    /* Topics 1 coluna */
+    .topics {
+        margin: 16px 0 0;
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .topics ul {
         grid-template-columns: 1fr;
     }
 
+    /* Seccao-titulo menor */
+    .secao-titulo {
+        font-size: 0.72em;
+        padding: 6px 10px;
+        border-radius: 6px 6px 0 0;
+    }
+
+    /* Questao cards */
     .questao {
-        padding: 14px 14px;
+        padding: 14px 12px;
+        margin: 0 0 12px;
+        border-radius: 0 0 6px 6px;
     }
 
     .questao h3 {
-        font-size: 0.9em;
+        font-size: 0.88em;
+        line-height: 1.4;
     }
 
+    .questao > p {
+        font-size: 0.88em;
+    }
+
+    .questao ol {
+        padding-left: 18px;
+        font-size: 0.88em;
+    }
+
+    /* Codigo adaptavel */
+    .codigo {
+        font-size: 0.75em;
+        padding: 10px 8px;
+        line-height: 1.4;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Opcoes touch-friendly (area maior) */
     .opcoes li {
-        padding: 8px 10px;
-        font-size: 0.9em;
+        padding: 12px 10px;
+        margin: 4px 0;
+        font-size: 0.88em;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
+    /* Botoes full-width no mobile */
     button {
+        display: block;
         width: 100%;
-        margin: 4px 0;
+        margin: 6px 0 0;
+        padding: 12px 16px;
+        font-size: 15px;
+        text-align: center;
+        -webkit-tap-highlight-color: rgba(74,144,217,0.2);
+    }
+
+    button:active {
+        transform: scale(0.98);
+        opacity: 0.75;
+    }
+
+    /* Gabaritos e explicacoes */
+    .gabarito,
+    .explicacao {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+
+    .resultado {
+        padding: 10px;
+        font-size: 0.88em;
+    }
+
+    .output-box {
+        padding: 10px 8px;
+        font-size: 0.82em;
+    }
+
+    /* Textarea full-width */
+    textarea {
+        min-height: 110px;
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 20px 8px 8px;
+        font-size: 0.75em;
+    }
+}
+
+/* Tela ultra-pequena (< 360px) */
+@media (max-width: 360px) {
+    body {
+        padding: 4px 4px 16px;
+    }
+
+    .hero {
+        padding: 18px 12px;
+    }
+
+    .hero h1 {
+        font-size: 1.3em;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .questao {
+        padding: 10px 10px;
     }
 
     .codigo {
-        font-size: 0.8em;
-        padding: 10px;
+        font-size: 0.72em;
+        padding: 8px 6px;
     }
 }
