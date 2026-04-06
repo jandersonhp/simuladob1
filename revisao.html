@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão — JavaScript</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===== REVISO — STYLES ===== */
+        .revisao-hero {
+            text-align: center;
+            background: linear-gradient(135deg, #4a90d9 0%, #2563a8 100%);
+            color: white;
+            padding: 32px 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .revisao-hero h1.sub-revisao { color: white; margin-bottom: 8px; }
+        .revisao-hero p.sub-text { opacity: 0.85; font-size: 0.9em; margin: 0; }
+
+        .credit-banner {
+            text-align: center;
+            background: #fffde7;
+            border: 1px solid #f0c040;
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin: 16px 0 20px;
+            font-size: 0.9em;
+        }
+        .credit-banner strong { color: #b8860b; }
+
+        .topico-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .topico-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .topico-card .icone {
+            font-size: 1.6em;
+            margin-bottom: 6px;
+        }
+        .topico-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05em;
+            color: #1a1a2e;
+        }
+        .topico-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 6px 0;
+        }
+
+        /* Tabela de tipos */
+        .tabela-tipos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.88em;
+        }
+        .tabela-tipos th {
+            background: #1a1a2e;
+            color: white;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .tabela-tipos th:first-child { border-radius: 6px 0 0 0; }
+        .tabela-tipos th:last-child { border-radius: 0 6px 0 0; }
+        .tabela-tipos td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .tabela-tipos tr:nth-child(even) { background: #f9f9f9; }
+        .tabela-tipos tr:hover { background: #eef3ff; }
+        .tabela-tipos code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Codigo com titulo */
+        .codigo-titulo h3 { margin-bottom: 0; }
+
+        /* Atividades praticas */
+        .atividade-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-top: 4px solid #4a90d9;
+        }
+        .atividade-card h3 {
+            margin: 0 0 10px;
+            color: #1a1a2e;
+            font-size: 1em;
+        }
+        .atividade-card p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        /* Operadores grid */
+        .op-grupo { margin: 10px 0; }
+        .op-grupo label {
+            font-weight: bold;
+            color: #1a1a2e;
+            font-size: 0.88em;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .op-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .op-badge {
+            background: #1e1e1e;
+            color: #f0db4f;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85em;
+        }
+        .op-badge.logico {
+            background: #eef3ff;
+            color: #1a1a2e;
+            font-family: Arial, sans-serif;
+        }
+
+        @media (max-width: 640px) {
+            .topico-grid {
+                grid-template-columns: 1fr;
+            }
+            .revisao-hero {
+                padding: 24px 16px;
+            }
+            .revisao-hero h1.sub-revisao {
+                font-size: 1.5em;
+            }
+            .atividade-card, .topico-card {
+                padding: 14px;
+            }
+            .tabela-tipos { font-size: 0.78em; }
+            .tabela-tipos td, .tabela-tipos th {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="secao-titulo"><a href="index.html">← Voltar</a></div>
+
+    <!-- Hero -->
+    <div class="revisao-hero">
+        <h1 class="sub-revisao">Resumo Completo</h1>
+        <p class="sub-text">JavaScript — Teoria, operadores, estruturas e atividades práticas</p>
+    </div>
+
+    <!-- Credito -->
+    <div class="credit-banner">
+        <strong>Resumo elaborado por Julia Brasileiro.</strong> Conteúdo baseado nos exercícios e materiais feitos durante as aulas de desenvolvimento em JavaScript.
+    </div>
+
+    <!-- 1. HISTÓRIA -->
+    <div class="topico-grid">
+        <div class="topico-card">
+            <div class="icone">📜</div>
+            <h3>1. História do JavaScript</h3>
+            <p>Linguagem leve para criar interações dinâmicas em páginas web, aplicativos, servidores e jogos.</p>
+            <ul>
+                <li>Criada em <strong>1995</strong> por <strong>Brendan Eich</strong> na <strong>Netscape</strong></li>
+                <li>Originalmente para validar formulários HTML</li>
+                <li>Suportada por quase todos os navegadores</li>
+                <li>Fundamental junto com HTML e CSS</li>
+            </ul>
+        </div>
+
+        <!-- 2. VARIÁVEIS E TIPOS -->
+        <div class="topico-card">
+            <div class="icone">📦</div>
+            <h3>2. Variáveis e Tipos de Dados</h3>
+            <p>Nomes simbólicos usados na memória para armazenar e manipular dados.</p>
+            <table class="tabela-tipos">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Inteira</strong></td>
+                        <td>Números inteiros</td>
+                        <td><code>var idade = 18;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Float</strong></td>
+                        <td>Números decimais</td>
+                        <td><code>var nota = 7.5;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Double</strong></td>
+                        <td>Decimais com maior precisão</td>
+                        <td><code>var preco = 19.9999;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>String</strong></td>
+                        <td>Textos e alfanuméricos</td>
+                        <td><code>var nome = "João";</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Booleana</strong></td>
+                        <td>Verdadeiro ou falso</td>
+                        <td><code>var ativo = true;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 3. OPERADORES -->
+    <p class="secao-titulo">3. Operadores</p>
+    <div class="topico-grid">
+        <div class="topico-card">
+            <h3>Aritméticos</h3>
+            <div class="op-badges">
+                <span class="op-badge">+</span>
+                <span class="op-badge">-</span>
+                <span class="op-badge">*</span>
+                <span class="op-badge">/</span>
+                <span class="op-badge">%</span>
+            </div>
+        </div>
+        <div class="topico-card">
+            <h3>Comparação</h3>
+            <div class="op-badges">
+                <span class="op-badge">&gt;</span>
+                <span class="op-badge">&lt;</span>
+                <span class="op-badge">==</span>
+                <span class="op-badge">!=</span>
+                <span class="op-badge">&gt;=</span>
+                <span class="op-badge">&lt;=</span>
+            </div>
+        </div>
+        <div class="topico-card">
+            <h3>Lógicos</h3>
+            <div class="op-badges">
+                <span class="op-badge logico"><strong>&amp;&amp;</strong> E — ambos verdadeiros</span>
+                <span class="op-badge logico"><strong>||</strong> OU — pelo menos um verdadeiro</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. ESTRUTURAS -->
+    <p class="secao-titulo">4. Estruturas de Controle e Repetição</p>
+    <div class="topico-grid">
+        <div class="topico-card codigo-titulo">
+            <h3>if / else if / else</h3>
+            <div class="codigo">if (condicao1) {
+    // condicao1 verdadeira
+} else if (condicao2) {
+    // condicao2 verdadeira
+} else {
+    // nenhuma condicao atendida
+}</div>
+        </div>
+        <div class="topico-card codigo-titulo">
+            <h3>For — Estrutura de Repetição</h3>
+            <div class="codigo">// Crescente (0 a 10)
+for (var i = 0; i &lt;= 10; i++) {
+    alert(i);
+}
+
+// Decrescente (10 a 0)
+for (var i = 10; i >= 0; i--) {
+    alert(i);
+}</div>
+        </div>
+    </div>
+
+    <!-- 5. FUNÇÕES E COMANDOS -->
+    <p class="secao-titulo">5. Funções e Comandos</p>
+    <div class="topico-grid">
+        <div class="topico-card">
+            <div class="icone">⌨️</div>
+            <h3>Entrada / Saída</h3>
+            <p><code>prompt()</code> — recebe dados do usuário via teclado</p>
+            <p><code>alert()</code> — exibe mensagens em janela de alerta</p>
+        </div>
+        <div class="topico-card">
+            <div class="icone">🔄</div>
+            <h3>Conversão</h3>
+            <p><code>parseInt()</code> — converte para número inteiro</p>
+            <p><code>parseFloat()</code> — converte para número decimal</p>
+        </div>
+        <div class="topico-card">
+            <div class="icone">🎲</div>
+            <h3>Biblioteca Math</h3>
+            <p><code>Math.random()</code> — gera número aleatório (0 a 1, exclusivo)</p>
+            <p><code>Math.floor()</code> — arredonda para baixo</p>
+        </div>
+    </div>
+
+    <!-- 6. ATIVIDADES PRÁTICAS -->
+    <p class="secao-titulo">6. Atividades Práticas</p>
+
+    <!-- 6.1 -->
+    <div class="atividade-card">
+        <h3>6.1 — Verificação de valores (soma >= 20)</h3>
+        <p>Somar dois números e alertar se o resultado é maior, menor ou igual a 20.</p>
+        <div class="codigo">var Numero = parseInt(prompt("insira valor 1: "));
+var Numero2 = parseInt(prompt("insira valor 2: "));
+var resultado = (Numero + Numero2);
+
+if (resultado >= 20) {
+    alert("O resultado é " + resultado + " é maior ou igual a 20");
+} else {
+    alert("O valor de " + resultado + " é menor que 20");
+}</div>
+    </div>
+
+    <!-- 6.2 -->
+    <div class="atividade-card">
+        <h3>6.2 — Cálculo de IMC</h3>
+        <p>Programa que calcula o Índice de Massa Corporal com base no peso e altura.</p>
+        <div class="codigo">var nome  = prompt("Digite seu nome");
+var peso  = parseFloat(prompt("Digite seu peso"));
+var altura = parseFloat(prompt("Digite sua altura"));
+var imc = peso / (altura * altura);
+
+if (imc < 18.5) {
+   alert("Olá " + nome + ", seu peso está baixo. IMC: " + imc.toFixed(2));
+} else if (imc < 24.99) {
+   alert("Olá " + nome + ", seu peso está normal. IMC: " + imc.toFixed(2));
+} else if (imc < 29.99) {
+   alert("Olá " + nome + ", você está com sobrepeso. IMC: " + imc.toFixed(2));
+} else {
+   alert("Olá " + nome + ", você está com obesidade. IMC: " + imc.toFixed(2));
+}</div>
+    </div>
+
+    <!-- 6.3 -->
+    <div class="atividade-card">
+        <h3>6.3 — Cálculo de Média</h3>
+        <p>Programa que recebe nome e notas de um aluno para dizer se ele foi aprovado ou reprovado. <br><em>(Prática resolvida no <a href="simulado1.html">Simulado 1 — Questão 10</a>)</em></p>
+    </div>
+
+    <!-- 6.4 -->
+    <div class="atividade-card">
+        <h3>6.4 — Jogo de Par ou Ímpar</h3>
+        <p>Usuário joga contra a máquina, que escolhe números aleatórios entre 0 e 10.</p>
+        <div class="codigo">var nome = prompt("Digite seu nickname");
+var primeirojog = parseFloat(prompt("Digite o primeiro número da jogada"));
+var segundojog = Math.floor(Math.random() * 10);
+alert(segundojog);
+var soma = primeirojog + segundojog;
+
+if (soma % 2 == 0) {
+    alert("Deu PAR! " + nome + " ganhou Resultado: " + soma);
+} else {
+    alert("Deu ÍMPAR! " + nome + " perdeu Resultado: " + soma);
+}</div>
+    </div>
+
+    <p class="footer"><a href="index.html">← Voltar para a página inicial</a></p>
+
+</body>
+</html>
