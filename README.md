@@ -4,7 +4,7 @@ Site interativo para estudar a prova do **Professor Argentino**, criado para a t
 
 Acesse em: [Landing Page](https://jandersonhp.github.io/simuladob1/)
 
-> **Como este projeto foi feito:** Este site foi criado inteiramente com **OpenClaude** usado diretamente pelo terminal. Os arquivos dos exercicios das aulas (HTML escritos por uma colega) foram lidos pela IA, que gerou automaticamente os simulados interativos, o CSS responsivo e toda a estrutura do projeto.
+> **Como este projeto foi feito:** Este site foi criado inteiramente com **OpenClaude** usado diretamente pelo terminal. Os arquivos dos exercícios das aulas (HTML escritos por uma colega) foram lidos pela IA, que gerou automaticamente os simulados interativos, o CSS responsivo e toda a estrutura do projeto. Enquanto a IA construía, eu respondia as questões diretamente no terminal e ia sendo corrigido em tempo real — uma sessão de estudo de verdade.
 
 ## O que tem aqui
 
@@ -12,6 +12,18 @@ Acesse em: [Landing Page](https://jandersonhp.github.io/simuladob1/)
 |---------|----------|
 | [Simulado 1](https://jandersonhp.github.io/simuladob1/simulado1.html) | Parte teorica (origem do JS), perguntas de output, e exercicio de escrever codigo |
 | [Simulado 2](https://jandersonhp.github.io/simuladob1/simulado2.html) | 10 questoes de multipla escolha com verificacao interativa + exercicio de escrever codigo |
+
+## Aprendendo com IA
+
+<img src="screenshots/aprendendocomia.png" alt="Sessao de estudo no terminal com o OpenClaude">
+<br><br>
+<img src="screenshots/rodandosite.png" alt="Site do simulado rodando no desktop">
+
+## Responsivo no celular
+
+<img src="screenshots/celmult.png" alt="Simulado responsivo no celular - multipla escolha" width="300">
+<img src="screenshots/celroda.png" alt="Simulado responsivo no celular - rodando codigo" width="300">
+
 
 ## Temas cobrados
 
