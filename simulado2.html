@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado 2 — Multipla Escolha + Codigo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="secao-titulo"><a href="index.html" style="color:white;text-decoration:none;">← Voltar</a></div>
+
+    <h1>Simulado 2 — Multipla Escolha</h1>
+    <p style="text-align:center;color:#666;font-size:0.9em;">Marque a alternativa e clique "Verificar" para ver se acertou</p>
+
+
+    <!-- Q1 -->
+    <p class="secao-titulo">Questao 1</p>
+    <div class="questao" id="q1">
+        <div class="codigo">var x = "5";
+var y = 3;
+alert(x + y);</div>
+        <ul class="opcoes" id="op1">
+            <li onclick="sel('op1',this,'a')"><input type="radio" name="q1"> a) 8</li>
+            <li onclick="sel('op1',this,'b')"><input type="radio" name="q1"> b) 53</li>
+            <li onclick="sel('op1',this,'c')"><input type="radio" name="q1"> c) 15</li>
+            <li onclick="sel('op1',this,'d')"><input type="radio" name="q1"> d) undefined</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(1,'b')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp1')">Explicacao</button>
+        <div class="resultado" id="res1"></div>
+        <div class="explicacao" id="exp1">
+            <strong>Correta: b) 53</strong>
+            <p>Quando um dos operandos e string, o <code>+</code> concatena. <code>"5" + 3</code> = <code>"53"</code>.</p>
+        </div>
+    </div>
+
+    <!-- Q2 -->
+    <p class="secao-titulo">Questao 2</p>
+    <div class="questao" id="q2">
+        <p>Qual trecho sorteia um numero de <b>1 a 6</b>?</p>
+        <div class="codigo">var dado = _________ ;
+alert(dado);</div>
+        <ul class="opcoes" id="op2">
+            <li onclick="sel('op2',this,'a')"><input type="radio" name="q2"> a) Math.random() * 6</li>
+            <li onclick="sel('op2',this,'b')"><input type="radio" name="q2"> b) Math.floor(Math.random() * 6)</li>
+            <li onclick="sel('op2',this,'c')"><input type="radio" name="q2"> c) Math.floor(Math.random() * 6) + 1</li>
+            <li onclick="sel('op2',this,'d')"><input type="radio" name="q2"> d) Math.random(1, 6)</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(2,'c')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp2')">Explicacao</button>
+        <div class="resultado" id="res2"></div>
+        <div class="explicacao" id="exp2">
+            <strong>Correta: c) Math.floor(Math.random() * 6) + 1</strong>
+            <p><code>Math.random() * 6</code> → 0..5.999, <code>floor</code> → 0..5, <code>+ 1</code> → 1..6.</p>
+        </div>
+    </div>
+
+    <!-- Q3 -->
+    <p class="secao-titulo">Questao 3</p>
+    <div class="questao" id="q3">
+        <div class="codigo">var a = 3;
+var b = a * 2;
+var c = a + b;
+alert(c);</div>
+        <ul class="opcoes" id="op3">
+            <li onclick="sel('op3',this,'a')"><input type="radio" name="q3"> a) 3</li>
+            <li onclick="sel('op3',this,'b')"><input type="radio" name="q3"> b) 6</li>
+            <li onclick="sel('op3',this,'c')"><input type="radio" name="q3"> c) 9</li>
+            <li onclick="sel('op3',this,'d')"><input type="radio" name="q3"> d) 12</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(3,'c')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp3')">Explicacao</button>
+        <div class="resultado" id="res3"></div>
+        <div class="explicacao" id="exp3">
+            <strong>Correta: c) 9</strong>
+            <p><code>b = 3 * 2 = 6</code>. <code>c = 3 + 6 = 9</code>.</p>
+        </div>
+    </div>
+
+    <!-- Q4 -->
+    <p class="secao-titulo">Questao 4</p>
+    <div class="questao" id="q4">
+        <div class="codigo">var nota = "7";
+var passou = nota > 6;
+alert(passou);</div>
+        <ul class="opcoes" id="op4">
+            <li onclick="sel('op4',this,'a')"><input type="radio" name="q4"> a) true</li>
+            <li onclick="sel('op4',this,'b')"><input type="radio" name="q4"> b) false</li>
+            <li onclick="sel('op4',this,'c')"><input type="radio" name="q4"> c) undefined</li>
+            <li onclick="sel('op4',this,'d')"><input type="radio" name="q4"> d) Erro</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(4,'a')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp4')">Explicacao</button>
+        <div class="resultado" id="res4"></div>
+        <div class="explicacao" id="exp4">
+            <strong>Correta: a) true</strong>
+            <p>O JS converte <code>"7"</code> para numero automaticamente na comparacao com <code>&gt;</code>. Entao <code>7 > 6</code> = true.</p>
+        </div>
+    </div>
+
+    <!-- Q5 -->
+    <p class="secao-titulo">Questao 5</p>
+    <div class="questao" id="q5">
+        <p>Qual trecho testa se o numero esta entre 10 e 20?</p>
+        <div class="codigo">var n = parseInt(prompt("Numero:"));
+if (______) {
+    alert("Entre 10 e 20");
+}</div>
+        <ul class="opcoes" id="op5">
+            <li onclick="sel('op5',this,'a')"><input type="radio" name="q5"> a) n > 10 e n < 20</li>
+            <li onclick="sel('op5',this,'b')"><input type="radio" name="q5"> b) n > 10 && n &lt; 20</li>
+            <li onclick="sel('op5',this,'c')"><input type="radio" name="q5"> c) n > 10 || n &lt; 20</li>
+            <li onclick="sel('op5',this,'d')"><input type="radio" name="q5"> d) 10 < n < 20</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(5,'b')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp5')">Explicacao</button>
+        <div class="resultado" id="res5"></div>
+        <div class="explicacao" id="exp5">
+            <strong>Correta: b) n > 10 && n < 20</strong>
+            <p>Em JS, o operador E logico e <code>&amp;&amp;</code>. Opcao c) usa OU, d) nao funciona.</p>
+        </div>
+    </div>
+
+    <!-- Q6 -->
+    <p class="secao-titulo">Questao 6</p>
+    <div class="questao" id="q6">
+        <div class="codigo">var x = 10;
+var y = 3;
+alert(x % y);</div>
+        <ul class="opcoes" id="op6">
+            <li onclick="sel('op6',this,'a')"><input type="radio" name="q6"> a) 3</li>
+            <li onclick="sel('op6',this,'b')"><input type="radio" name="q6"> b) 1</li>
+            <li onclick="sel('op6',this,'c')"><input type="radio" name="q6"> c) 3.33</li>
+            <li onclick="sel('op6',this,'d')"><input type="radio" name="q6"> d) 0</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(6,'b')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp6')">Explicacao</button>
+        <div class="resultado" id="res6"></div>
+        <div class="explicacao" id="exp6">
+            <strong>Correta: b) 1</strong>
+            <p>10 ÷ 3 = 3, resto <strong>1</strong>. O operador <code>%</code> retorna o resto da divisao inteira.</p>
+        </div>
+    </div>
+
+    <!-- Q7 -->
+    <p class="secao-titulo">Questao 7</p>
+    <div class="questao" id="q7">
+        <p>Qual a sequencia de outputs?</p>
+        <div class="codigo">var idade = 17;
+if (idade >= 18) {
+    alert("A");
+} else {
+    alert("B");
+}
+alert("Fim");</div>
+        <ul class="opcoes" id="op7">
+            <li onclick="sel('op7',this,'a')"><input type="radio" name="q7"> a) Primeiro "B", depois "Fim"</li>
+            <li onclick="sel('op7',this,'b')"><input type="radio" name="q7"> b) So "Fim"</li>
+            <li onclick="sel('op7',this,'c')"><input type="radio" name="q7"> c) Primeiro "A", depois "Fim"</li>
+            <li onclick="sel('op7',this,'d')"><input type="radio" name="q7"> d) "B" (e para)</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(7,'a')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp7')">Explicacao</button>
+        <div class="resultado" id="res7"></div>
+        <div class="explicacao" id="exp7">
+            <strong>Correta: a) Primeiro "B", depois "Fim"</strong>
+            <p>17 nao e maior que 18 → else → "B". Codigo fora do if SEMPRE executa → "Fim".</p>
+        </div>
+    </div>
+
+    <!-- Q8 -->
+    <p class="secao-titulo">Questao 8</p>
+    <div class="questao" id="q8">
+        <p>O que formata o IMC com 2 casas decimais?</p>
+        <div class="codigo">var imc = peso / (altura * altura);
+alert("Seu IMC: " + __________ );</div>
+        <ul class="opcoes" id="op8">
+            <li onclick="sel('op8',this,'a')"><input type="radio" name="q8"> a) imc.toFixed(2)</li>
+            <li onclick="sel('op8',this,'b')"><input type="radio" name="q8"> b) imc.round(2)</li>
+            <li onclick="sel('op8',this,'c')"><input type="radio" name="q8"> c) Math.floor(imc)</li>
+            <li onclick="sel('op8',this,'d')"><input type="radio" name="q8"> d) imc.casas(2)</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(8,'a')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp8')">Explicacao</button>
+        <div class="resultado" id="res8"></div>
+        <div class="explicacao" id="exp8">
+            <strong>Correta: a) imc.toFixed(2)</strong>
+            <p>O metodo <code>.toFixed(n)</code> formata com <code>n</code> casas decimais. Os outros nao existem.</p>
+        </div>
+    </div>
+
+    <!-- Q9 -->
+    <p class="secao-titulo">Questao 9 (pegadinha)</p>
+    <div class="questao" id="q9">
+        <div class="codigo">var a = true;
+var b = false;
+var c = true;
+if (a && b || c) {
+    alert("Sim");
+} else {
+    alert("Nao");
+}</div>
+        <ul class="opcoes" id="op9">
+            <li onclick="sel('op9',this,'a')"><input type="radio" name="q9"> a) Sim</li>
+            <li onclick="sel('op9',this,'b')"><input type="radio" name="q9"> b) Nao</li>
+            <li onclick="sel('op9',this,'c')"><input type="radio" name="q9"> c) undefined</li>
+            <li onclick="sel('op9',this,'d')"><input type="radio" name="q9"> d) Erro</li>
+        </ul>
+        <button class="btn-verificar" onclick="verificar(9,'a')">Verificar</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp9')">Explicacao</button>
+        <div class="resultado" id="res9"></div>
+        <div class="explicacao" id="exp9">
+            <strong>Correta: a) Sim</strong>
+            <p><code>&amp;&amp;</code> tem precedencia sobre <code>||</code>. <code>true && false</code> = false. <code>false || true</code> = true → "Sim".</p>
+        </div>
+    </div>
+
+    <!-- Q10 — WRITE CODE -->
+    <p class="secao-titulo">Questao 10 — Escreva o codigo e rode</p>
+    <div class="questao" id="q10">
+        <p>Escreva um programa que:</p>
+        <ol>
+            <li>Sorteia um numero de <b>1 a 100</b></li>
+            <li>Pede pro usuario digitar um palpite</li>
+            <li>Se acertou → "Acertou!"</li>
+            <li>Se palpite > sorteado → "Menor!"</li>
+            <li>Se palpite < sorteado → "Maior!"</li>
+        </ol>
+        <textarea id="codigo10" placeholder="// Escreva seu codigo aqui..."></textarea>
+        <br>
+        <button class="btn-rodar" onclick="rodarQ10()">Rodar Meu Codigo</button>
+        <button class="btn-explicar" onclick="mostrarExp('exp10')">Ver Resposta</button>
+        <div class="output-box" id="out10"></div>
+        <div class="explicacao" id="exp10">
+            <div class="codigo">var sorteado = Math.floor(Math.random() * 100) + 1;
+var palpite = parseInt(prompt("Seu palpite (1-100):"));
+
+if (palpite == sorteado) {
+    alert("Acertou!");
+} else if (palpite > sorteado) {
+    alert("Menor! O numero era " + sorteado);
+} else {
+    alert("Maior! O numero era " + sorteado);
+}</div>
+        </div>
+    </div>
+
+    <p class="footer"><a href="index.html" style="color:#999;">← Voltar para a pagina inicial</a></p>
+
+    <script src="js/simulado2.js"></script>
+
+</body>
+</html>

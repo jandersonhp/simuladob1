@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado 1 — Teoria, Output e Codigo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="secao-titulo"><a href="index.html" style="color:white;text-decoration:none;">← Voltar</a></div>
+
+    <h1>Simulado 1 — Teoria, Output e Codigo</h1>
+
+
+    <!-- === TEORIA === -->
+    <p class="secao-titulo">Parte 1 — Teoria (Origem do JS)</p>
+    <div class="questao">
+        <ol>
+            <li><strong>Quem criou o JavaScript e em qual ano?</strong></li>
+            <li><strong>Em quantos dias o JavaScript foi criado inicialmente?</strong></li>
+            <li><strong>Qual era o nome original antes de virar "JavaScript"?</strong></li>
+            <li><strong>JavaScript e Java sao a mesma coisa? Explique.</strong></li>
+            <li><strong>Qual organizacao padroniza o JavaScript ate hoje (nome do padrao)?</strong></li>
+        </ol>
+        <button class="btn-gabarito" onclick="toggle('gabarito-teoria')">Ver Gabarito</button>
+        <div class="gabarito" id="gabarito-teoria">
+            <p><strong>1.</strong> <strong>Brendan Eich</strong>, em <strong>1995</strong>, trabalhando na <strong>Netscape</strong>.</p>
+            <p><strong>2.</strong> Aproximadamente <strong>10 dias</strong>.</p>
+            <p><strong>3.</strong> Primeiro se chamou <strong>Mocha</strong>, depois <strong>LiveScript</strong>. Nada a ver com cafe — "Java" era jogada de marketing da Sun (dona do Java) com a Netscape.</p>
+            <p><strong>4.</strong> <strong>Nao!</strong> Sao linguagens completamente diferentes, sem relacao tecnica. Java e da Sun/Oracle, JavaScript e da Netscape/Mozilla. O nome similar foi estrategia de marketing.</p>
+            <p><strong>5.</strong> A <strong>ECMA International</strong> padroniza o JavaScript. O padrao se chama <strong>ECMAScript</strong>. A Microsoft criou o JScript, que era um clone do JS no Internet Explorer — talvez seu professor tenha falado sobre isso quando disse que "a Microsoft roubou".</p>
+        </div>
+    </div>
+
+
+    <!-- === PARTE 2 === -->
+    <p class="secao-titulo">Parte 2 — O que aparece no output?</p>
+
+    <div class="questao">
+        <h3>Questao 6 — O que aparece no alert?</h3>
+        <div class="codigo">var x = 10;
+var y = "10";
+alert(x == y);
+alert(x === y);</div>
+        <button class="btn-rodar" onclick="rodarQ6()">Rodar Codigo</button>
+        <button class="btn-gabarito" onclick="toggle('gabarito6')">Ver Gabarito</button>
+        <div class="output-box" id="output6"></div>
+        <div class="gabarito" id="gabarito6">
+            <p><strong>Primeiro alert:</strong> <code>true</code></p>
+            <p><strong>Segundo alert:</strong> <code>false</code></p>
+            <p><strong>==</strong> compara valor (com conversao) → verdadeiro.</p>
+            <p><strong>===</strong> compara valor E tipo (sem conversao) → falso, pois number ≠ string.</p>
+        </div>
+    </div>
+
+    <div class="questao">
+        <h3>Questao 7 — Quais valores possiveis para n?</h3>
+        <div class="codigo">var n = Math.floor(Math.random() * 4);
+alert(n);</div>
+        <button class="btn-rodar" onclick="rodarQ7()">Rodar Codigo</button>
+        <button class="btn-gabarito" onclick="toggle('gabarito7')">Ver Gabarito</button>
+        <div class="output-box" id="output7"></div>
+        <div class="gabarito" id="gabarito7">
+            <p><strong>Valores:</strong> <code>0, 1, 2 ou 3</code></p>
+            <p>Regra: <code>Math.floor(Math.random() * N)</code> sorteia de <strong>0 ate N-1</strong>.</p>
+        </div>
+    </div>
+
+    <div class="questao">
+        <h3>Questao 8 — O que aparece no alert?</h3>
+        <div class="codigo">var a = 7;
+var b = 3;
+var resultado = a % b;
+alert(resultado);</div>
+        <button class="btn-rodar" onclick="rodarQ8()">Rodar Codigo</button>
+        <button class="btn-gabarito" onclick="toggle('gabarito8')">Ver Gabarito</button>
+        <div class="output-box" id="output8"></div>
+        <div class="gabarito" id="gabarito8">
+            <p><strong>Resultado:</strong> <code>1</code> (resto de 7 ÷ 3 = 2 com resto 1).</p>
+        </div>
+    </div>
+
+    <div class="questao">
+        <h3>Questao 9 — Funciona do jeito esperado?</h3>
+        <div class="codigo">var nome = prompt("Nome:");
+var idade = prompt("Idade:");
+if (idade >= 18) {
+    alert("Maior de idade");
+} else {
+    alert("Menor de idade");
+}</div>
+        <button class="btn-rodar" onclick="rodarQ9()">Rodar Codigo</button>
+        <button class="btn-gabarito" onclick="toggle('gabarito9')">Ver Gabarito</button>
+        <div class="output-box" id="output9"></div>
+        <div class="gabarito" id="gabarito9">
+            <p>Por coincidencia funciona! O JS faz coercao automatica. Mas se o usuario digitar algo invalido vira <code>NaN</code>. O certo e usar <code>parseFloat</code> ou <code>parseInt</code>.</p>
+        </div>
+    </div>
+
+
+    <!-- === PARTE 3 === -->
+    <p class="secao-titulo">Parte 3 — Escreva o codigo</p>
+
+    <div class="questao">
+        <h3>Questao 10 — Media de 3 notas</h3>
+        <p>Pede 3 notas, calcula a media e mostra:</p>
+        <ul>
+            <li>Media >= 7 → "Aprovado"</li>
+            <li>Media >= 5 e &lt; 7 → "Recuperacao"</li>
+            <li>Media &lt; 5 → "Reprovado"</li>
+        </ul>
+        <textarea id="codigoQ10" placeholder="// Escreva seu codigo aqui..."></textarea>
+        <br>
+        <button class="btn-rodar" onclick="rodarQ10()">Rodar Meu Codigo</button>
+        <button class="btn-gabarito" onclick="toggle('gabarito10')">Ver Gabarito</button>
+        <div class="output-box" id="output10"></div>
+        <div class="gabarito" id="gabarito10">
+            <div class="codigo">var nota1 = parseFloat(prompt("Nota 1:"));
+var nota2 = parseFloat(prompt("Nota 2:"));
+var nota3 = parseFloat(prompt("Nota 3:"));
+
+var media = (nota1 + nota2 + nota3) / 3;
+
+if (media >= 7) {
+    alert("Media: " + media.toFixed(2) + " — Aprovado!");
+} else if (media >= 5) {
+    alert("Media: " + media.toFixed(2) + " — Recuperacao");
+} else {
+    alert("Media: " + media.toFixed(2) + " — Reprovado");
+}</div>
+        </div>
+    </div>
+
+    <p class="footer"><a href="index.html" style="color:#999;">← Voltar para a pagina inicial</a></p>
+
+    <script src="js/simulado1.js"></script>
+
+</body>
+</html>
